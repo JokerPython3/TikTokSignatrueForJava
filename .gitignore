@@ -1,0 +1,41 @@
+# Java build output
+out/
+target/
+*.class
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+credentials.*
+secrets.*
+tokens.*
+session.*
+
+# IDE / editor metadata (keep launch.json and tasks.json for portability)
+.vscode/settings.json
+.vscode/*.code-workspace
+.vscode/extensions.json
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+*.tmp
+
+# Logs
+*.log
+
+# Certificates / keys
+*.pem
+*.key
+*.p12
+*.jks

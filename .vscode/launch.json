@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run Example (Java)",
+      "request": "launch",
+      "mainClass": "Example",
+      "projectName": "tiktoksignature-java",
+      "console": "integratedTerminal",
+      "preLaunchTask": "compile"
+    },
+    {
+      "type": "java",
+      "name": "Debug Example (Java)",
+      "request": "launch",
+      "mainClass": "Example",
+      "projectName": "tiktoksignature-java",
+      "console": "integratedTerminal",
+      "env": {
+        "DEBUG": "1"
+      },
+      "preLaunchTask": "compile"
+    },
+    {
+      "type": "java",
+      "name": "Run Tests (Java, custom runner)",
+      "request": "launch",
+      "mainClass": "tiktoksignature.TestRunner",
+      "projectName": "tiktoksignature-java",
+      "console": "integratedTerminal",
+      "preLaunchTask": "compile"
+    }
+  ]
+}

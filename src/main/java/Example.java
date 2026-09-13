@@ -83,50 +83,76 @@ public class Example {
         long nowUnixMilli = System.currentTimeMillis();
 
         List<Param> params = new ArrayList<>();
-        addParam(params, "passport-sdk-version", "6041890");
+
+
+        addParam(params, "passport-sdk-version", "6031490");
+        addParam(params, "request_tag_from", "h5");
+        addParam(params, "fixed_mix_mode", "1");
+        addParam(params, "mix_mode", "1");
+        addParam(params, "account_param", "");
+        addParam(params, "scene", "1");
         addParam(params, "device_platform", "android");
         addParam(params, "os", "android");
         addParam(params, "ssmix", "a");
-        addParam(params, "_rticket", String.valueOf(nowUnixMilli));
-        addParam(params, "cdid", hexUUID4());
+        addParam(params, "type", "3736");
+
+        addParam(params, "iid",
+                String.valueOf(randInt64Range(
+                        7500000000000000000L,
+                        7699999999999999999L
+                )));
+
+        addParam(params, "device_id",
+                String.valueOf(randInt64Range(
+                        7500000000000000000L,
+                        7699999999999999999L
+                )));
+
+        addParam(params, "ac", "MOBILE");
         addParam(params, "channel", "googleplay");
-        addParam(params, "aid", "1233");
         addParam(params, "app_name", "musical_ly");
-        addParam(params, "version_code", "410903");
-        addParam(params, "version_name", "41.9.3");
-        addParam(params, "manifest_version_code", "2024109030");
-        addParam(params, "update_version_code", "2024109030");
-        addParam(params, "ab_version", "41.9.3");
-        addParam(params, "resolution", "1920*985");
-        addParam(params, "dpi", "180");
+        addParam(params, "version_code", "370004");
+        addParam(params, "version_name", "37.0.4");
+        addParam(params, "ab_version", "37.0.4");
         addParam(params, "device_type", "WayDroid x86_64 Device");
         addParam(params, "device_brand", "waydroid");
         addParam(params, "language", "en");
         addParam(params, "os_api", "33");
         addParam(params, "os_version", "13");
-        addParam(params, "ac", "mobile");
+        addParam(params, "openudid", "95a2f1db117b750c");
+        addParam(params, "manifest_version_code", "2023700040");
+        addParam(params, "resolution", "1920*985");
+        addParam(params, "dpi", "180");
+        addParam(params, "update_version_code", "2023700040");
+
+        addParam(params, "_rticket", String.valueOf(nowUnixMilli));
+
         addParam(params, "is_pad", "1");
         addParam(params, "app_type", "normal");
         addParam(params, "sys_region", "US");
-        addParam(params, "last_install_time", "1788041680");
+
+// Python:
+// str(round(int(time.time()-len("atro"))))
+// len("atro") = 4
+        addParam(params, "last_install_time", String.valueOf(nowUnix - 4));
+
         addParam(params, "timezone_name", "GMT");
         addParam(params, "app_language", "en");
-        addParam(params, "timezone_offset", "0");
-        addParam(params, "host_abi", "arm64-v8a");
-        addParam(params, "locale", "en");
         addParam(params, "ac2", "unknown");
         addParam(params, "uoo", "1");
         addParam(params, "op_region", "US");
-        addParam(params, "build_number", "41.9.3");
+        addParam(params, "timezone_offset", "0");
+        addParam(params, "build_number", "37.0.4");
+        addParam(params, "host_abi", "arm64-v8a");
+        addParam(params, "locale", "en");
         addParam(params, "region", "US");
         addParam(params, "ts", String.valueOf(nowUnix));
-        addParam(params, "iid", String.valueOf(randInt64Range(7400000000000000000L, 7499999999999999999L)));
-        addParam(params, "device_id", String.valueOf(randInt64Range(7400000000000000000L, 7499999999999999999L)));
-        addParam(params, "openudid", randomHexBytes(8));
+
+        addParam(params, "cdid", hexUUID4());
+
         addParam(params, "support_webview", "1");
-        addParam(params, "reg_store_region", "ca");
-        addParam(params, "user_selected_region", "0");
-        addParam(params, "okhttp_version", "4.2.243.16-tiktok-fix");
+        addParam(params, "reg_store_region", "nl");
+        addParam(params, "okhttp_version", "4.2.195.9-tiktok");
         addParam(params, "use_store_region_cookie", "1");
 
         System.out.print("Enter email to send code -> ");
@@ -142,7 +168,7 @@ public class Example {
         addParam(data, "email", xor(email));
         addParam(data, "email_theme", "2");
         addParam(data, "use_passport_ticket", "1");
-        addParam(data, "scene", "3");
+        addParam(data, "scene", "1");
 
         Signatures sig = Signer.sign(
                 SignRequest.builder().params(params).data(data).build(),
